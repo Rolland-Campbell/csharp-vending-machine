@@ -6,7 +6,8 @@ namespace vending_machine_csharp
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Testing! 1 2 3");
+      App app = new App();
+      app.Setup();
     }
   }
 }
