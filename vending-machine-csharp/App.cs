@@ -6,9 +6,12 @@ namespace vending_machine_csharp
   public class App
   {
     public VendingMachine vendingMachine { get; set; }
+
+    //setting the bool to true so program will run.
     Boolean active = true;
     public void Setup()
     {
+      //creating items for the vending machine.
       Food doritoz = new Food("A1", 10, "Doritoz", 2.0m, 8);
       Food oreos = new Food("A2", 10, "Oreos", 2.0m, 8);
       Food tp = new Food("A3", 10, "Fluffy Bunny", 500.0m, 10);
@@ -18,6 +21,7 @@ namespace vending_machine_csharp
 
       vendingMachine = new VendingMachine(25.00m);
 
+      //Adding items to the machine.
       vendingMachine.AddProduct(doritoz);
       vendingMachine.AddProduct(oreos);
       vendingMachine.AddProduct(tp);
@@ -65,7 +69,7 @@ Welcome to my vending machine");
 
     public void Menu()
     {
-      Console.WriteLine("What would you like to purchase? \n\n\r1) View Products \n\r2) Purchase\n\r3) Add a Quarter\n\r4) Leave");
+      Console.WriteLine(" \nWhat would you like to purchase? \n\n1) View Products \n2) Purchase\n3) Add a Quarter\n4) Leave");
 
       string userInput = Console.ReadLine();
       switch (userInput)

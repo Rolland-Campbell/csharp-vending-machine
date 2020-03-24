@@ -5,6 +5,7 @@ using vending_machine_csharp.Interfaces;
 namespace vending_machine_csharp.Models
 {
   public class VendingMachine : IVendingMachine
+  //NOTE You do not need an interface, it will work without it. Interfaces are like Schema in JS. You are setting how the object will be built everytime. This becomes important when dealing with other APIs and such.
   {
     public decimal TransactionBalance { get; set; }
     public decimal TotalBalance { get; set; }
@@ -13,7 +14,6 @@ namespace vending_machine_csharp.Models
     public void AddMoney(decimal amount)
     {
       Console.Clear();
-      //NOTE We define the logic within this class that's implementing the interface
       TransactionBalance += amount;
       Console.WriteLine($"your current balance is {TransactionBalance}");
     }
@@ -74,8 +74,6 @@ namespace vending_machine_csharp.Models
         TotalBalance += productToPurchase.Price;
         System.Console.WriteLine($"Enjoy your {productToPurchase.Name}");
       }
-
-
     }
   }
 }
