@@ -14,10 +14,23 @@ namespace vending_machine_csharp.Models
     public void AddMoney(decimal amount)
     {
       Console.Clear();
+      foreach (var item in Products)
+      {
+        if (item.Available)
+        {
+          Console.WriteLine($"Location: {item.Location} Item: {item.Name}  Price: ${item.Price} Quantity: {item.Quantity}");
+        }
+      }
       TransactionBalance += amount;
-      Console.WriteLine($"your current balance is {TransactionBalance}");
+      Console.WriteLine($"\nyour current balance is {TransactionBalance}");
     }
 
+    public void RemoveMoney()
+    {
+      TransactionBalance = 0;
+      Console.Clear();
+      Console.WriteLine($"\nyour current balance is {TransactionBalance}, please add coins to continue.");
+    }
     public void ListAvailableProducts()
     {
       Console.Clear();
@@ -28,8 +41,7 @@ namespace vending_machine_csharp.Models
           Console.WriteLine($"Location: {item.Location} Item: {item.Name}  Price: ${item.Price} Quantity: {item.Quantity}");
         }
       }
-      Console.WriteLine("Press Enter to continue.");
-      Console.ReadLine();
+      Console.WriteLine($"\nyour current balance is {TransactionBalance}, please add coins to continue.");
     }
 
     public void AddProduct(Product productToAdd)
@@ -52,6 +64,7 @@ namespace vending_machine_csharp.Models
       //did they choose a correct location
       if (productToPurchase == null)
       {
+        Console.Clear();
         System.Console.WriteLine("Invalid location, please try again.");
       }
       else
@@ -59,12 +72,14 @@ namespace vending_machine_csharp.Models
         //do they have enough money?
         if (TransactionBalance < productToPurchase.Price)
         {
+          Console.Clear();
           System.Console.WriteLine("Insufficient funds");
           return;
         }
         //is the product in the machine?
         if (!productToPurchase.Available)
         {
+          Console.Clear();
           System.Console.WriteLine("Product not available");
           return;
         }
@@ -73,7 +88,9 @@ namespace vending_machine_csharp.Models
         productToPurchase.Quantity--;
 
         TotalBalance += productToPurchase.Price;
+        Console.Clear();
         System.Console.WriteLine($"Thank you for your purchase, Enjoy your {productToPurchase.Name}");
+        Console.WriteLine($"\nyour current balance is {TransactionBalance}");
       }
     }
   }

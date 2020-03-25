@@ -11,6 +11,7 @@ namespace vending_machine_csharp.Interfaces
 
     void AddMoney(decimal amount);
 
+    void RemoveMoney();
     void ListAvailableProducts();
 
     void AddProduct(Product productToAdd);
