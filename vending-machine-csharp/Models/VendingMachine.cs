@@ -25,7 +25,7 @@ namespace vending_machine_csharp.Models
       {
         if (item.Available)
         {
-          Console.WriteLine($"Location: {item.Location} Item: {item.Name}  Price: {item.Price} Quantity: {item.Quantity}");
+          Console.WriteLine($"Location: {item.Location} Item: {item.Name}  Price: ${item.Price} Quantity: {item.Quantity}");
         }
       }
       Console.WriteLine("Press Enter to continue.");
