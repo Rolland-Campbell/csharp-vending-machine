@@ -15,9 +15,9 @@ namespace vending_machine_csharp
       Food doritoz = new Food("A1", 10, "Doritoz", 2.0m, 8);
       Food oreos = new Food("A2", 10, "Oreos", 2.0m, 8);
       Food tp = new Food("A3", 10, "Fluffy Bunny Toilet Paper", 500.0m, 10);
-      Drink sprite = new Drink("B1", 7, "Sprite", 1.50m, 20);
-      Drink tea = new Drink("B2", 7, "Lipton Unsweet", 3.50m, 12);
-      Drink oj = new Drink("B3", 7, "Orange Juice, White glove edition", 2.00m, 16);
+      Drink sprite = new Drink("B1", 10, "Sprite", 1.50m, 20);
+      Drink tea = new Drink("B2", 10, "Lipton Unsweet", 3.50m, 12);
+      Drink oj = new Drink("B3", 10, "Orange Juice, White glove edition", 2.00m, 16);
 
       vendingMachine = new VendingMachine(25.00m);
 

@@ -5,7 +5,7 @@ using vending_machine_csharp.Interfaces;
 namespace vending_machine_csharp.Models
 {
   public class VendingMachine : IVendingMachine
-  //NOTE You do not need an interface, it will work without it. Interfaces are like Schema in JS. You are setting how the object will be built everytime. This becomes important when dealing with other APIs and such.
+  //NOTE You do not need an interface, it will work without it. 
   {
     public decimal TransactionBalance { get; set; }
     public decimal TotalBalance { get; set; }
@@ -49,9 +49,10 @@ namespace vending_machine_csharp.Models
       Console.WriteLine("Enter location:");
       string userChoice = Console.ReadLine();
       Product productToPurchase = Products.Find(p => p.Location == userChoice.ToUpper());
+      //did they choose a correct location
       if (productToPurchase == null)
       {
-        System.Console.WriteLine("Invalid location");
+        System.Console.WriteLine("Invalid location, please try again.");
       }
       else
       {
@@ -64,7 +65,7 @@ namespace vending_machine_csharp.Models
         //is the product in the machine?
         if (!productToPurchase.Available)
         {
-          System.Console.WriteLine(" Product not available");
+          System.Console.WriteLine("Product not available");
           return;
         }
         //if they have enough money and the product is there, perform purchase.
@@ -72,7 +73,7 @@ namespace vending_machine_csharp.Models
         productToPurchase.Quantity--;
 
         TotalBalance += productToPurchase.Price;
-        System.Console.WriteLine($"Enjoy your {productToPurchase.Name}");
+        System.Console.WriteLine($"Thank you for your purchase, Enjoy your {productToPurchase.Name}");
       }
     }
   }
